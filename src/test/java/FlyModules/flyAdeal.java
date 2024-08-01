@@ -75,11 +75,11 @@ public class flyAdeal extends FlyAdealCacheFlow  {
             driver.findElement(By.cssSelector("div.select_date_previous")).click();
             Thread.sleep(2000);
 
-            for (int weekOffset = 0; weekOffset < 2; weekOffset++) {
+            for (int weekOffset = 0; weekOffset < 5; weekOffset++) {
                 for (int dayOffset = 1; dayOffset <= 7; dayOffset++) {
                     int totalOffset = weekOffset * 7 + dayOffset;
 
-                    if (totalOffset > 14) {
+                    if (totalOffset > 35) {
                         break; // Exit the loop if the total days processed exceed 70
                     }
 
@@ -150,7 +150,7 @@ public class flyAdeal extends FlyAdealCacheFlow  {
     	                String To = PnrDetails.To;
     	                ApiMethods.sendResults(Currency, From, To, Depdate, new ArrayList<FadFlightDetails>());
            	        }
-                    if (dayOffset == 7 && weekOffset < 1) {
+                    if (dayOffset == 7 && weekOffset < 4) {
                         driver.findElement(By.cssSelector("div.select-date-range.next-date-range")).click();
                         Thread.sleep(2000);
                     }
